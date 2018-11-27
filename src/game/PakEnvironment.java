@@ -12,6 +12,7 @@ public class PakEnvironment extends EnvironmentDescription {
 	
 	public PakEnvironment() {
 		this.environmentObjects = EnvironmentParser.parseEnvironment(this, "./levels/1.txt");
+		System.out.println("Environment created.");
 	}
 	
 	public static void main(String[] args) {
