@@ -3,6 +3,7 @@ package game;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import simbad.gui.Simbad;
 import simbad.sim.BlockWorldObject;
 import simbad.sim.EnvironmentDescription;
 
@@ -14,6 +15,6 @@ public class PakEnvironment extends EnvironmentDescription {
 	}
 	
 	public static void main(String[] args) {
-		new PakEnvironment();
+		Simbad frame = new Simbad(new PakEnvironment(), false);
 	}
 }
