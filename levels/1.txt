@@ -1,0 +1,8 @@
+//Définit un mur ensuite les positions X Y et Z, longueur, hauteur. La dernière, 1 pour rotate de 90°, sinon 0.
+W 10 0 0 -1 1 0
+
+//Définit un joueur, puis ses coordonnées X Y et Z
+PAK 0 0 0
+
+//Définit un ennemi, ses coordonnées X Y Z puis sa vitesse.
+GHOST 3 0 -2 2.5

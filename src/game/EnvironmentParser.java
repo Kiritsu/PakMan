@@ -10,14 +10,13 @@ import javax.vecmath.Vector3d;
 import javax.vecmath.Vector3f;
 
 import simbad.sim.Arch;
-import simbad.sim.BlockWorldObject;
 import simbad.sim.Box;
 import simbad.sim.EnvironmentDescription;
 import simbad.sim.Wall;
 
 public class EnvironmentParser {
-	public static HashMap<String, ArrayList<BlockWorldObject>> parseEnvironment(EnvironmentDescription env, String path) {		
-		HashMap<String, ArrayList<BlockWorldObject>> objs = new HashMap<>();
+	public static HashMap<String, ArrayList<Object>> parseEnvironment(EnvironmentDescription env, String path) {		
+		HashMap<String, ArrayList<Object>> objs = new HashMap<>();
 		
 		try {
 			File file = new File(path); 
@@ -28,8 +27,12 @@ public class EnvironmentParser {
 			while ((st = br.readLine()) != null) {
 				String[] vals = st.split(" ");
 				
+				if (vals.length == 0 || vals.length == 1 || vals[0].startsWith("//")) {
+					continue;
+				}
+				
 				if (vals[0].equals("W")) {
-					objs.putIfAbsent("Walls", new ArrayList<BlockWorldObject>());
+					objs.putIfAbsent("Walls", new ArrayList<Object>());
 					
 					if (vals.length != 7) {
 						continue;
@@ -42,7 +45,7 @@ public class EnvironmentParser {
 					
 					objs.get("Walls").add(temp);
 				} else if (vals[0].equals("A")) {
-					objs.putIfAbsent("Arch", new ArrayList<BlockWorldObject>());
+					objs.putIfAbsent("Arch", new ArrayList<Object>());
 					
 					if (vals.length != 5) {
 						continue;
@@ -55,7 +58,7 @@ public class EnvironmentParser {
 					
 					objs.get("Arch").add(temp);
 				} else if (vals[0].equals("B")) {
-					objs.putIfAbsent("Box", new ArrayList<BlockWorldObject>());
+					objs.putIfAbsent("Box", new ArrayList<Object>());
 					
 					if (vals.length != 8) {
 						continue;
@@ -67,6 +70,22 @@ public class EnvironmentParser {
 					}
 					
 					objs.get("Box").add(temp);
+				} else if (vals[0].equals("PAK")) {
+					objs.putIfAbsent("Player", new ArrayList<Object>());
+					
+					if (vals.length != 4) {
+						continue;
+					}
+					
+					objs.get("Player").add(new PakRobot(new Vector3d(Double.valueOf(vals[1]), Double.valueOf(vals[2]), Double.valueOf(vals[3])), "Pak Istan"));
+				} else if (vals[0].equals("GHOST")) {
+					objs.putIfAbsent("Ghost", new ArrayList<Object>());
+					
+					if (vals.length != 5) {
+						continue;
+					}
+					
+					objs.get("Ghost").add(new PakGhostRobot(new Vector3d(Double.valueOf(vals[1]), Double.valueOf(vals[2]), Double.valueOf(vals[3])), "Pak Istan", Double.valueOf(vals[4])));
 				}
 			} 
 			
