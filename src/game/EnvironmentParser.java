@@ -15,6 +15,12 @@ import simbad.sim.EnvironmentDescription;
 import simbad.sim.Wall;
 
 public class EnvironmentParser {
+	/**
+	 * Parses the given file to detect different WorldBlock entities and robots.
+	 * @param env Defines the environment we are working on.
+	 * @param path Path of the file to parse.
+	 * @return HashMap containing every different object parsed.
+	 */
 	public static HashMap<String, ArrayList<Object>> parseEnvironment(EnvironmentDescription env, String path) {		
 		HashMap<String, ArrayList<Object>> objs = new HashMap<>();
 		
@@ -31,6 +37,7 @@ public class EnvironmentParser {
 					continue;
 				}
 				
+				//W for Walls, A for Archs, B for Boxes, PAK for the player object, GHOST for the ennemies.
 				if (vals[0].equals("W")) {
 					objs.putIfAbsent("Walls", new ArrayList<Object>());
 					

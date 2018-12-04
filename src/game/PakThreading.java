@@ -10,6 +10,9 @@ public class PakThreading implements Runnable {
 		this.instance = instance;
 	}
 	
+	/**
+	 * This thread intends to request the focus of our frame to correctly detect when we press a key.
+	 */
 	@Override
 	public void run() {
 		this.running = true;

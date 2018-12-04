@@ -17,10 +17,18 @@ public class PakRobot extends Agent {
 		rotational = 0;
 	}
 	
+	/**
+	 * Updates the speed of our robot (aka Player).
+	 * @param speed New speed of our robot.
+	 */
 	public void updateSpeed(double speed) {
 		this.translational = speed;
 	}
 	
+	/**
+	 * This tell our robot (aka Player) to change the direction as soon as possible.
+	 * @param direction
+	 */
 	public void changeDirection(double direction) {
 		this.rotational = direction;
 		this.mustRotate = true;

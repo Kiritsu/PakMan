@@ -9,10 +9,16 @@ import simbad.sim.EnvironmentDescription;
 public class PakEnvironment extends EnvironmentDescription {
 	private HashMap<String, ArrayList<Object>> environmentObjects;
 	
+	/**
+	 * This initializes the environmentObjects and parse our different entities.
+	 */
 	public PakEnvironment() {
 		environmentObjects = EnvironmentParser.parseEnvironment(this, "./levels/1.txt");
 	}
 	
+	/**
+	 * Initializes the world of our environment.
+	 */
 	public void createWorld() {
 		for (String key : environmentObjects.keySet()) {
 			for (Object bwo : environmentObjects.get(key)) {
@@ -21,6 +27,9 @@ public class PakEnvironment extends EnvironmentDescription {
 		}
 	}
 	
+	/**
+	 * Returns our player robot, named Pak.
+	 */
 	public PakRobot getPak() {
 		return (PakRobot) environmentObjects.get("Player").get(0);
 	}

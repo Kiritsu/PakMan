@@ -12,6 +12,9 @@ public class PakListener implements KeyListener {
 		walking = false;
 	}
 	
+	/**
+	 * Method called by the javax API when we pressed a key. It will change the speed/direction of our robot (aka Player).
+	 */
 	@Override
 	public void keyPressed(KeyEvent e) {
 		if (e.getKeyChar() == 'z') {
