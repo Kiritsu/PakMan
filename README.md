@@ -1,3 +1,36 @@
-# PakMan
+# PakMan - simbad/j3d
 
-Projet universitaire.
+PakMan est un projet pour notre module `M301 - Conception et Programmation Objet Avancée` de l'université. Le but final de cette implémentation de l'API simbad/j3d est de faire un pseudo-pacman simplifié.
+
+Toutes les différentes implémentations à faire sont dans la partie [Issues](https://github.com/Kiritsu/PakMan/issues) avec les membres assignés.
+
+## Installation
+
+```
+> git clone https://github.com/Kiritsu/PakMan.git
+```
+
+## Compilation manuelle
+
+*Assurez vous d'être dans le dossier src*
+
+```
+> javac -sourcepath . -d ../bin game/*.java
+> cp -r ../levels/ ../bin
+```
+
+Les fichiers seront générés/copiés dans ../bin.
+
+## Lancement manuel (fichiers déjà compilés, dans .\pakMan\bin)
+
+*Assurez-vous d'être dans le dossier /bin.*
+
+```
+> javaw "-Djava.library.path={0}" -classpath "{1};{2};{3};{4}" game.PakMan
+```
+
+- {0} : chemin vers les fichiers binaires de j3d (j3dcore-ogl.dll)
+- {1} : chemin vers les fichiers binaires du projet (.\pakMan\bin)
+- {2} : chemin **complet** vers j3dcore.jar
+- {3} : chemin **complet** vers j3dutils.jar
+- {4} : chemin **complet** vers vecmaths.jar
