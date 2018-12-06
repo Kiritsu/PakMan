@@ -5,16 +5,10 @@ import javax.vecmath.Vector3d;
 import simbad.sim.Agent;
 
 public class PakRobot extends Agent {
-	private double translational;
-	
-	private boolean mustRotate;
-	private double rotational;
+	private char lastRotationKey = 's';
 	
 	public PakRobot(Vector3d position, String name) {
 		super(position, name);
-		
-		translational = 0;
-		rotational = 0;
 	}
 	
 	/**
@@ -22,28 +16,75 @@ public class PakRobot extends Agent {
 	 * @param speed New speed of our robot.
 	 */
 	public void updateSpeed(double speed) {
-		this.translational = speed;
+		setTranslationalVelocity(speed);
 	}
 	
 	/**
 	 * This tell our robot (aka Player) to change the direction as soon as possible.
 	 * @param direction
 	 */
-	public void changeDirection(double direction) {
-		this.rotational = direction;
-		this.mustRotate = true;
+	public void changeDirection(char key) {
+		switch (lastRotationKey) {
+			case 'z':
+				switch (key) {
+				case 'q':
+					rotateY(Math.PI / 2);
+					break;
+				case 's':
+					rotateY(Math.PI);
+					break;
+				case 'd':
+					rotateY(-(Math.PI / 2));
+					break;
+				}
+				break;
+			case 'q':
+				switch (key) {
+				case 'z':
+					rotateY(-(Math.PI / 2));
+					break;
+				case 's':
+					rotateY(Math.PI / 2);
+					break;
+				case 'd':
+					rotateY(Math.PI);
+					break;
+				}
+				break;
+			case 's':
+				switch (key) {
+				case 'z':
+					rotateY(Math.PI);
+					break;
+				case 'q':
+					rotateY(-(Math.PI / 2));
+					break;
+				case 'd':
+					rotateY(Math.PI / 2);
+					break;
+				}
+				break;
+			case 'd':
+				switch (key) {
+				case 'z':
+					rotateY(Math.PI / 2);
+					break;
+				case 'q':
+					rotateY(Math.PI);
+					break;
+				case 's':
+					rotateY(-(Math.PI / 2));
+					break;
+				}
+				break;
+		} 	
+		
+		lastRotationKey = key;
 	}
 	
 	public void initBehavior() {
-		
 	}
 	
 	public void performBehavior() {
-		setTranslationalVelocity(translational);
-		
-		if (mustRotate) {
-			rotateY(rotational);
-			mustRotate = false;
-		}
 	}
 }

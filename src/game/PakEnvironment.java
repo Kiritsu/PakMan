@@ -13,7 +13,7 @@ public class PakEnvironment extends EnvironmentDescription {
 	 * This initializes the environmentObjects and parse our different entities.
 	 */
 	public PakEnvironment() {
-		environmentObjects = EnvironmentParser.parseEnvironment(this, "./levels/1.txt");
+		environmentObjects = PakEnvironmentParser.parseEnvironment(this, "./levels/1.txt");
 	}
 	
 	/**

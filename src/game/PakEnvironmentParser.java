@@ -14,7 +14,7 @@ import simbad.sim.Box;
 import simbad.sim.EnvironmentDescription;
 import simbad.sim.Wall;
 
-public class EnvironmentParser {
+public class PakEnvironmentParser {
 	/**
 	 * Parses the given file to detect different WorldBlock entities and robots.
 	 * @param env Defines the environment we are working on.
