@@ -10,6 +10,10 @@ Toutes les différentes implémentations à faire sont dans la partie [Issues](h
 > git clone https://github.com/Kiritsu/PakMan.git
 ```
 
+## Scripts 
+
+Utilisateur windows ? Utilisez les scripts `build.ps1` et `run.ps1` dans le dossier `scripts` pour compiler et démarrer le programme.
+
 ## Compilation manuelle
 
 *Assurez vous d'être dans le dossier src*
