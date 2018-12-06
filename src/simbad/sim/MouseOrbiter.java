@@ -52,8 +52,8 @@ public class MouseOrbiter implements MouseInputListener {
     private double longditude = 0.0;
     private double latitude = 0.0;
     private double rollAngle = 0.0;
-    private double startDistanceFromCenter = 20.0;
-    private double distanceFromCenter = 20.0;
+    private double startDistanceFromCenter = 30.0;
+    private double distanceFromCenter = 30.0;
     private final double MAX_MOUSE_ANGLE = Math.toRadians(3);
     private final double ZOOM_FACTOR = 1.0;
     private Point3d rotationCenter = new Point3d();
@@ -103,11 +103,16 @@ public class MouseOrbiter implements MouseInputListener {
         this.targetTG = targetTransformGroup;
         targetTransform = new Transform3D();
         resetView();
+        distanceFromCenter = 30.0;
+        motion = true;
         integrateTransforms();
     }
 
     protected void processMouseEvent(final MouseEvent evt) {
-        if (evt.getID() == MouseEvent.MOUSE_PRESSED) {
+    	distanceFromCenter = 30;
+    	integrateTransforms();
+    	return;
+        /*if (evt.getID() == MouseEvent.MOUSE_PRESSED) {
             mouseX = evt.getX();
             mouseY = evt.getY();
             motion = true;
@@ -116,6 +121,7 @@ public class MouseOrbiter implements MouseInputListener {
             int ychange = evt.getY() - mouseY;
             // rotate
             if (!evt.isAltDown() && !evt.isMetaDown()) {
+            	
                 if (reverseRotate) {
                     longditude -= xchange * rotXMul;
                     latitude -= ychange * rotYMul;
@@ -137,7 +143,7 @@ public class MouseOrbiter implements MouseInputListener {
             // zoom
             else if (evt.isAltDown() && !evt.isMetaDown()) {
                         if (reverseZoom) {
-                            distanceFromCenter -= ychange * zoomMul;
+                            distanceFromCenter = 30;
                         } else {
                             distanceFromCenter += ychange * zoomMul;
                         }
@@ -148,7 +154,7 @@ public class MouseOrbiter implements MouseInputListener {
             mouseY = evt.getY();
             motion = true;
         } 
-        integrateTransforms();
+        integrateTransforms();*/
         
 
     }
@@ -228,11 +234,11 @@ public class MouseOrbiter implements MouseInputListener {
     public void mouseClicked(MouseEvent arg0) {}
 
     public void mousePressed(MouseEvent event) {
-        processMouseEvent(event);
+        //processMouseEvent(event);
     }
 
     public void mouseReleased(MouseEvent event) {
-        processMouseEvent(event);
+        //processMouseEvent(event);
     }
 
     public void mouseEntered(MouseEvent arg0) {}
@@ -240,7 +246,7 @@ public class MouseOrbiter implements MouseInputListener {
     public void mouseExited(MouseEvent arg0) {}
 
     public void mouseDragged(MouseEvent event) {
-        processMouseEvent(event);
+        //processMouseEvent(event);
     }
 
     public void mouseMoved(MouseEvent event) {

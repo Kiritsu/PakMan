@@ -56,7 +56,7 @@ public class SimulatorControlGUI extends JPanel implements ActionListener {
         
         smallFont = new Font("Arial",Font.PLAIN,11);
         setFont(smallFont);
-        createGUI();
+        //createGUI();
         this.parentFrame = parentFrame;
      }
     

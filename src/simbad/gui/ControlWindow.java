@@ -40,7 +40,7 @@ public class ControlWindow extends JInternalFrame {
 
 	public ControlWindow(World world,  Simulator simulator){
     	    super("Control");
-    	    createGui(world,simulator);
+    	    //createGui(world,simulator);
     	}
     	
     	private void createGui(World world,Simulator simulator){

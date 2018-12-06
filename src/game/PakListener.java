@@ -3,12 +3,16 @@ package game;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import simbad.sim.Simulator;
+
 public class PakListener implements KeyListener {
 	private PakRobot pak;
+	private Simulator simulator;
 	private boolean walking;
 	
-	public PakListener(PakRobot pak) {
+	public PakListener(PakRobot pak, Simulator simulator) {
 		this.pak = pak;
+		this.simulator = simulator;
 		walking = false;
 	}
 	
@@ -17,9 +21,11 @@ public class PakListener implements KeyListener {
 	 */
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if (!walking) {
+		if (!walking && e.getKeyChar() == ' ') {
+			simulator.startSimulation();
 			pak.updateSpeed(2.5);
 			walking = true;
+			return;
 		}
 		pak.changeDirection(e.getKeyChar());
 	}

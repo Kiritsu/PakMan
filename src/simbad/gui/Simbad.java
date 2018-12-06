@@ -55,8 +55,8 @@ public class Simbad extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	
 	static final String version="1.4";
-	static int SIZEX = 800;
-	static int SIZEY = 700;
+	static int SIZEX = 1400;
+	static int SIZEY = 780;
 	JMenuBar menubar;
     JDesktopPane desktop;
     WorldWindow worldWindow=null;
@@ -69,7 +69,13 @@ public class Simbad extends JFrame implements ActionListener {
    
     static  Simbad simbadInstance=null;
     
+    public World getWorld() {
+    	return this.world;
+    }
     
+    public Simulator getSimulator() {
+    	return this.simulator;
+    }
     
     /** Construct Simbad application with the given environement description */
     public Simbad(EnvironmentDescription ed, boolean backgroundMode) {
@@ -122,8 +128,8 @@ public class Simbad extends JFrame implements ActionListener {
         worldWindow = new WorldWindow(world);
         desktop.add(worldWindow);
         worldWindow.show();
-        worldWindow.setLocation(300, 20);
-        agentInspector = createAgentInspector(simulator, 20, 20);
+        worldWindow.setLocation(10, 10);
+        //agentInspector = createAgentInspector(simulator, 20, 20);
         if (!backgroundMode){
         controlWindow = new ControlWindow(world, simulator);
         desktop.add(controlWindow);

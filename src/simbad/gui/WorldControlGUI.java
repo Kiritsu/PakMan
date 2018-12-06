@@ -49,9 +49,10 @@ public class WorldControlGUI extends JPanel implements ActionListener {
     public WorldControlGUI(World world, Simulator simulator) {
         this.world = world;
         smallFont = new Font("Arial",Font.PLAIN,11);
-        createGUI();
-        agentFollower = new AgentFollower(world, (SimpleAgent) simulator
-                .getAgentList().get(0));
+        
+        //createGUI();
+        /*agentFollower = new AgentFollower(world, (SimpleAgent) simulator
+                .getAgentList().get(0));*/
     }
 
     void createGUI() {

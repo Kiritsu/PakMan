@@ -183,7 +183,7 @@ public  class World   {
         
         // Add mouse control in the canvas3d 
         mouseOrbiter = new MouseOrbiter(canvas3d,viewTransformGroup);
-
+        
         	// sets initial viewpoint
         changeViewPoint(ed.worldViewPoint,null);
     }

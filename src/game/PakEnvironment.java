@@ -3,7 +3,6 @@ package game;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import simbad.gui.Simbad;
 import simbad.sim.EnvironmentDescription;
 
 public class PakEnvironment extends EnvironmentDescription {
@@ -12,14 +11,16 @@ public class PakEnvironment extends EnvironmentDescription {
 	/**
 	 * This initializes the environmentObjects and parse our different entities.
 	 */
-	public PakEnvironment() {
-		environmentObjects = PakEnvironmentParser.parseEnvironment(this, "./levels/1.txt");
+	public void initialize(String levelPath) {
+		environmentObjects = PakEnvironmentParser.parseEnvironment(this, levelPath);
+		setWorldSize(22);
+		createWorld();
 	}
 	
 	/**
 	 * Initializes the world of our environment.
 	 */
-	public void createWorld() {
+	private void createWorld() {
 		for (String key : environmentObjects.keySet()) {
 			for (Object bwo : environmentObjects.get(key)) {
 				add(bwo);
@@ -28,20 +29,9 @@ public class PakEnvironment extends EnvironmentDescription {
 	}
 	
 	/**
-	 * Returns our player robot, named Pak.
+	 * Returns our player robot.
 	 */
-	public PakRobot getPak() {
+	public PakRobot getPlayer() {
 		return (PakRobot) environmentObjects.get("Player").get(0);
-	}
-	
-	public static void main(String[] args) {
-		PakEnvironment instance = new PakEnvironment();
-		instance.createWorld();
-		
-		Simbad frame = new Simbad(instance, false);
-		frame.addKeyListener(new PakListener(instance.getPak()));
-		
-		PakThreading thread = new PakThreading(frame);
-		thread.run();
 	}
 }

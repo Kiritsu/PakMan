@@ -5,7 +5,7 @@ import javax.vecmath.Vector3d;
 import simbad.sim.Agent;
 
 public class PakRobot extends Agent {
-	private char lastRotationKey = 's';
+	private char lastRotationKey = 'd';
 	
 	public PakRobot(Vector3d position, String name) {
 		super(position, name);
@@ -36,6 +36,8 @@ public class PakRobot extends Agent {
 				case 'd':
 					rotateY(-(Math.PI / 2));
 					break;
+				default:
+					return;
 				}
 				break;
 			case 'q':
@@ -49,6 +51,8 @@ public class PakRobot extends Agent {
 				case 'd':
 					rotateY(Math.PI);
 					break;
+				default:
+					return;
 				}
 				break;
 			case 's':
@@ -62,6 +66,8 @@ public class PakRobot extends Agent {
 				case 'd':
 					rotateY(Math.PI / 2);
 					break;
+				default:
+					return;
 				}
 				break;
 			case 'd':
@@ -75,6 +81,8 @@ public class PakRobot extends Agent {
 				case 's':
 					rotateY(-(Math.PI / 2));
 					break;
+				default:
+					return;
 				}
 				break;
 		} 	
