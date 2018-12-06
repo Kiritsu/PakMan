@@ -34,3 +34,9 @@ Les fichiers seront générés/copiés dans ../bin.
 - {2} : chemin **complet** vers j3dcore.jar
 - {3} : chemin **complet** vers j3dutils.jar
 - {4} : chemin **complet** vers vecmaths.jar
+
+Exemple :
+
+```
+> javaw "-Djava.library.path=C:\Program Files (x86)\Java\Java3D\1.5.1\bin" -classpath "C:\Users\Allan\eclipse-workspace\pakMan\bin;C:\Program Files (x86)\Java\Java3D\1.5.1\lib\ext\j3dcore.jar;C:\Program Files (x86)\Java\Java3D\1.5.1\lib\ext\j3dutils.jar;C:\Program Files (x86)\Java\Java3D\1.5.1\lib\ext\vecmath.jar" game.PakMan
+```
