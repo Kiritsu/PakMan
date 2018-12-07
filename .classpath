@@ -5,7 +5,7 @@
 	<classpathentry kind="src" path="levels"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/j3d">
 		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="/home/etudiant/sg171284/workspace/j3d-1_6_0-pre1-1011070159-linux-amd64/j3d-jre/lib/amd64"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="pakMan"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
