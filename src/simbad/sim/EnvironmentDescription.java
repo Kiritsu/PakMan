@@ -87,15 +87,15 @@ public class EnvironmentDescription {
 
     void defaultSettings() {
         light1IsOn = true;
-        light2IsOn = false;
+        light2IsOn = true; 
         ambientLightColor = white;
         light1Color = white;
         light2Color = white;
-        wallColor = blue;
+        wallColor = red; 
         archColor = green;
         boxColor = red;
-        floorColor = ligthgray;
-        backgroundColor = ligthgray;
+        floorColor = black; 
+        backgroundColor = black; 
         hasAxis = true;
         normalsStyle = NORMALS_SIMPLE;
         worldViewPoint = World.VIEW_FROM_EAST;

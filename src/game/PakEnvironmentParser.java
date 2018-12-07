@@ -1,5 +1,6 @@
 package game;
 
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -103,11 +104,12 @@ public class PakEnvironmentParser {
 					}
 					
 					float pts = 0.15f;
-					Color3f color = new Color3f(0, 255, 255);
+					Color3f color = new Color3f(Color.yellow);
 					
 					if (vals[4].equals("1"))
 					{
 						pts = 0.25f;
+						color = new Color3f(Color.red);
 					}
 					
 					objs.get("Point").add(new CherryAgent(new Vector3d(Double.valueOf(vals[1]), Double.valueOf(vals[2]), Double.valueOf(vals[3])), "Point", pts, color));
