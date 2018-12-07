@@ -6,11 +6,13 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import javax.vecmath.Color3f;
 import javax.vecmath.Vector3d;
 import javax.vecmath.Vector3f;
 
 import simbad.sim.Arch;
 import simbad.sim.Box;
+import simbad.sim.CherryAgent;
 import simbad.sim.EnvironmentDescription;
 import simbad.sim.Wall;
 
@@ -93,6 +95,22 @@ public class PakEnvironmentParser {
 					}
 					
 					objs.get("Ghost").add(new PakGhostRobot(new Vector3d(Double.valueOf(vals[1]), Double.valueOf(vals[2]), Double.valueOf(vals[3])), "Pak Istan", Double.valueOf(vals[4])));
+				} else if(vals[0].equals("P")) {
+					objs.putIfAbsent("Point", new ArrayList<Object>());
+					
+					if (vals.length != 5){
+						continue;		
+					}
+					
+					float pts = 0.15f;
+					Color3f color = new Color3f(0, 255, 255);
+					
+					if (vals[4].equals("1"))
+					{
+						pts = 0.25f;
+					}
+					
+					objs.get("Point").add(new CherryAgent(new Vector3d(Double.valueOf(vals[1]), Double.valueOf(vals[2]), Double.valueOf(vals[3])), "Point", pts, color));
 				}
 			} 
 			

@@ -1,4 +1,4 @@
-//Définit un mur ensuite les positions X Y et Z, longueur, hauteur. La dernière, 1 pour rotate de 90°, sinon 0.
+//Dï¿½finit un mur ensuite les positions X Y et Z, longueur, hauteur. La derniï¿½re, 1 pour rotate de 90ï¿½, sinon 0.
 // murs principaux
 W 11 0 0 22 2 1
 W -11 0 0 22 2 1
@@ -10,8 +10,11 @@ W 0 0 -11 22 2 0
 //W 2 0 0 3 1 0
 //W -2 0 0 3 1 0
 
-//Définit un joueur, puis ses coordonnées X Y et Z
+//Dï¿½finit un joueur, puis ses coordonnï¿½es X Y et Z
 PAK 0 0 0
 
-//Définit un ennemi, ses coordonnées X Y Z puis sa vitesse.
+//Dï¿½finit un ennemi, ses coordonnï¿½es X Y Z puis sa vitesse.
 GHOST 3 0 -2 2.5
+
+P 0 0 0 1
+P 2 0 2 0

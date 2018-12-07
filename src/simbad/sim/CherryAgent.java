@@ -46,14 +46,15 @@ public class CherryAgent extends SimpleAgent {
      * @param pos
      * @param name
      */
-    public CherryAgent(Vector3d pos, String name, float radius) {
+    public CherryAgent(Vector3d pos, String name, float radius, Color3f color) {
         super(pos, name);
         // to avoid collision indication
         setCanBeTraversed(true);
 
         this.radius = radius;
         this.height = 2 * radius;
-        this.color = new Color3f(0.8f, 0, 0);
+        this.color = color; 
+        //new Color3f(0.8f, 0, 0);
       
 
     }
@@ -64,7 +65,7 @@ public class CherryAgent extends SimpleAgent {
         
         material.setCapability(Material.ALLOW_COMPONENT_WRITE);
         material.setDiffuseColor(color);
-        material.setSpecularColor(black);
+        //material.setSpecularColor(black);
         appear.setMaterial(material);
         int flags = Primitive.GEOMETRY_NOT_SHARED
                 | Primitive.ENABLE_GEOMETRY_PICKING
