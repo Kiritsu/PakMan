@@ -5,7 +5,7 @@
 	<classpathentry kind="src" path="levels"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/j3d">
 		<attributes>
-			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Program Files (x86)/Java/Java3D/1.5.1/bin"/>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Program Files/Java/Java3D/1.5.1/bin"/>
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
