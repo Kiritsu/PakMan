@@ -24,7 +24,9 @@ public class PakLevel {
 		frame.getWorld().changeViewPoint(World.VIEW_FROM_TOP, null);
 		frame.addKeyListener(new PakListener(env.getPlayer(), frame.getSimulator(), config));
 		
-		window = new PakCustomWindow("Pak Window", frame);
+		window = new PakCustomWindow("Pak Window", frame, config);
+		window.updateRules();
+		window.updateScore(0);
 		frame.addFrame(window);
 		
 		thread = new PakThreading(frame);
