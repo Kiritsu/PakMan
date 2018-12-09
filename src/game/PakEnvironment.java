@@ -7,19 +7,21 @@ import simbad.sim.EnvironmentDescription;
 
 public class PakEnvironment extends EnvironmentDescription {
 	private HashMap<String, ArrayList<Object>> environmentObjects;
-	private PakConfiguration config;
+	private PakLevel level;
+	private int nbCherries;
 	
-	public PakEnvironment(PakConfiguration config) {
-		this.config = config;
+	public PakEnvironment(PakLevel level) {
+		this.level = level;
 	}
 	
 	/**
 	 * This initializes the environmentObjects and parse our different entities.
 	 */
 	public void initialize(String levelPath) {
-		environmentObjects = PakEnvironmentParser.parseEnvironment(this, levelPath, config);
+		environmentObjects = PakEnvironmentParser.parseEnvironment(this, levelPath, level);
 		setWorldSize(22);
 		createWorld();
+		nbCherries = environmentObjects.get("Point").size();
 	}
 	
 	/**
@@ -31,6 +33,10 @@ public class PakEnvironment extends EnvironmentDescription {
 				add(bwo);
 			}
 		}
+	}
+	
+	public int getNbCherries() {
+		return nbCherries;
 	}
 	
 	/**

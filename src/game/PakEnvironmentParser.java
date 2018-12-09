@@ -24,7 +24,7 @@ public class PakEnvironmentParser {
 	 * @param path Path of the file to parse.
 	 * @return HashMap containing every different object parsed.
 	 */
-	public static HashMap<String, ArrayList<Object>> parseEnvironment(EnvironmentDescription env, String path, PakConfiguration config) {		
+	public static HashMap<String, ArrayList<Object>> parseEnvironment(EnvironmentDescription env, String path, PakLevel level) {		
 		HashMap<String, ArrayList<Object>> objs = new HashMap<>();
 		
 		try {
@@ -86,7 +86,7 @@ public class PakEnvironmentParser {
 						continue;
 					}
 					
-					objs.get("Player").add(new PakRobot(new Vector3d(Double.valueOf(vals[1]), Double.valueOf(vals[2]), Double.valueOf(vals[3])), "Pak Istan", config));
+					objs.get("Player").add(new PakRobot(new Vector3d(Double.valueOf(vals[1]), Double.valueOf(vals[2]), Double.valueOf(vals[3])), "Pak Istan", level));
 				} else if (vals[0].equals("GHOST")) {
 					objs.putIfAbsent("Ghost", new ArrayList<Object>());
 					
@@ -95,7 +95,7 @@ public class PakEnvironmentParser {
 					}
 					
 					objs.get("Ghost").add(new PakGhostRobot(new Vector3d(Double.valueOf(vals[1]), Double.valueOf(vals[2]), Double.valueOf(vals[3])), "Pak Istan", Double.valueOf(vals[4])));
-				} else if(vals[0].equals("P")) {
+				} else if (vals[0].equals("P")) {
 					objs.putIfAbsent("Point", new ArrayList<Object>());
 					
 					if (vals.length != 5){
@@ -118,6 +118,7 @@ public class PakEnvironmentParser {
 			br.close();
 		} catch(Exception e) { 
 			e.printStackTrace(); 
+			new NoLevelFrame();
 		}
 		
 		return objs;

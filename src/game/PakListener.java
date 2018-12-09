@@ -32,6 +32,7 @@ public class PakListener implements KeyListener {
 			return;
 		}
 		
+		pak.updateSpeed(2.5);
 		pak.changeDirection(e.getKeyChar());
 	}
 

@@ -10,7 +10,7 @@ public class PakGhostRobot extends Agent {
 	
 	public PakGhostRobot(Vector3d position, String name, double speed) {
 		super(position, name);
-		
+		this.setCanBeTraversed(false);
 		this.speed = speed;
 		this.setColor(new Color3f(255, 255, 255));
 	}
@@ -21,7 +21,7 @@ public class PakGhostRobot extends Agent {
 	
 	public void performBehavior() {
 		setTranslationalVelocity(speed);
-		
+
 		if (collisionDetected()) {
 			int rnd = (int)(Math.random() * 100);
 			if (rnd < 25) {
