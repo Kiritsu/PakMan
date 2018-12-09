@@ -75,7 +75,7 @@ public class PakLevel {
 	 */
 	public void start() {
 		env = new PakEnvironment(this);
-		env.initialize("./levels/" + level + ".txt");
+		env.initialize(System.getProperty("java.class.path").split(";")[0] + "/levels/" + level + ".txt");
 		
 		frame = new Simbad(env, false);
 		frame.getWorld().changeViewPoint(World.VIEW_FROM_TOP, null);
