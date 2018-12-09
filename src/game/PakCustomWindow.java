@@ -47,7 +47,7 @@ public class PakCustomWindow extends JInternalFrame {
 	 * Updates the JLabel to print rules.
 	 */
 	public void updateRules() {
-		rules.setText("<html>" + config.getTextByKey("goal") + "<br>" + config.getTextByKey("robot") + "</html>");
+		rules.setText("<html>" + config.getTextByKey("goal") + "<br>" + config.getTextByKey("robot") + "<br>" + config.getTextByKey("collision") + "</html>");
 	}
 	
 	/**

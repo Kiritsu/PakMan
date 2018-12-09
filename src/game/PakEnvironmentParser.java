@@ -117,7 +117,6 @@ public class PakEnvironmentParser {
 			
 			br.close();
 		} catch(Exception e) { 
-			e.printStackTrace(); 
 			new NoLevelFrame();
 		}
 		
