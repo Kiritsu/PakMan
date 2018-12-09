@@ -35,6 +35,9 @@ public class PakEnvironment extends EnvironmentDescription {
 		}
 	}
 	
+	/**
+	 * Returns the amount of Cherries (AKA Points) in the current world.
+	 */
 	public int getNbCherries() {
 		return nbCherries;
 	}

@@ -20,6 +20,9 @@ public class PakLevel {
 		this.lifes = 3;
 	}
 	
+	/**
+	 * Will increment the score of the player.
+	 */
 	public void addScore() {
 		this.score++;
 		window.updateScore(score);
@@ -32,6 +35,9 @@ public class PakLevel {
 		}
 	}
 	
+	/**
+	 * Will decrease the life of the player.
+	 */
 	public void decLife() {
 		this.lifes--;
 		window.updateLife(lifes);
@@ -63,6 +69,10 @@ public class PakLevel {
 		return this.config;
 	}
 	
+	/**
+	 * Starts the game: it initializes the environment with the given level, creates the frame, 
+	 * creates the other windows and start a special thread to keep focus on the frame (needed to catch keys pressed).
+	 */
 	public void start() {
 		env = new PakEnvironment(this);
 		env.initialize("./levels/" + level + ".txt");
@@ -80,6 +90,9 @@ public class PakLevel {
 		thread.run();
 	}
 	
+	/**
+	 * Stops the game and releases different ressources.
+	 */
 	public void stop() {
 		thread.stop();
 		frame.dispose();

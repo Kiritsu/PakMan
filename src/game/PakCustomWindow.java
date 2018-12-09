@@ -43,14 +43,23 @@ public class PakCustomWindow extends JInternalFrame {
 	    setSize(550, 700);
 	}
 	
+	/**
+	 * Updates the JLabel to print rules.
+	 */
 	public void updateRules() {
 		rules.setText("<html>" + config.getTextByKey("goal") + "<br>" + config.getTextByKey("robot") + "</html>");
 	}
 	
+	/**
+	 * Updates the JLabel with the given score.
+	 */
 	public void updateScore(int currentScore) {
 		score.setText("Vous avez " + currentScore + " point(s).");
 	}
 	
+	/**
+	 * Updates the JLabel with the given life.
+	 */
 	public void updateLife(int life) {
 		score.setText("Il vous reste " + life + " vie(s).");
 		if (life == 0) {

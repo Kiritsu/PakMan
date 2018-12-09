@@ -29,7 +29,7 @@ public class PakRobot extends Agent {
 	}
 	
 	/**
-	 * This tell our robot (aka Player) to change the direction as soon as possible.
+	 * Tells our robot (aka Player) to change the direction as soon as possible.
 	 * @param direction
 	 */
 	public void changeDirection(char key) {

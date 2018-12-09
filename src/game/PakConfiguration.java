@@ -19,7 +19,7 @@ public class PakConfiguration {
 	}
 	
 	/**
-	 * 
+	 * Parses the configuration and update the different class attributes.
 	 * @param path
 	 */
 	public void parseAll(String path) {
@@ -30,8 +30,8 @@ public class PakConfiguration {
 	}
 	
 	/**
-	 * 
-	 * @param path
+	 * Parses our ini configuration file.
+	 * @param path of the configuration file.
 	 */
 	public void parseTexts(String path) {
 		try {
@@ -67,7 +67,7 @@ public class PakConfiguration {
 	}
 	
 	/**
-	 * 
+	 * Updates our Keys class with the keys from the configuration.
 	 */
 	public void applyKeys() {
 		HashMap<String, String> keys = rawFile.get("KEYS");
@@ -80,40 +80,30 @@ public class PakConfiguration {
 	}
 	
 	/**
-	 * 
+	 * Updates our texts attribute with the TEXTS values of our configuration file.
 	 */
 	public void applyTexts() {
 		texts = rawFile.get("TEXTS");
 	}
 	
 	/**
-	 * 
+	 * Sets the level on which we must start.
 	 */
 	public void applyLevel() {
 		HashMap<String, String> levelConfig = rawFile.get("GAME_CONFIG");
 		this.level = Integer.valueOf(levelConfig.get("level"));
 	}
-	
-	/**
-	 * 
-	 * @return
-	 */
+
 	public int getLevel() {
 		return this.level;
 	}
-	
-	/**
-	 * 
-	 * @return
-	 */
+
 	public Keys getKeys() {
 		return this.keys;
 	}
 	
 	/**
-	 * 
-	 * @param key
-	 * @return
+	 * Returns a string associated with the given key.
 	 */
 	public String getTextByKey(String key) {
 		return texts.get(key);
