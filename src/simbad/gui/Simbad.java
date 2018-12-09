@@ -25,6 +25,9 @@
 
 package simbad.gui;
 
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -37,6 +40,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.border.Border;
 
 import simbad.demo.DemoManager;
 import simbad.sim.Agent;
@@ -66,11 +70,16 @@ public class Simbad extends JFrame implements ActionListener {
     Console console=null;
     AgentInspector agentInspector=null;
     boolean backgroundMode;
+    JPanel mainPanel;
    
     static  Simbad simbadInstance=null;
     
     public World getWorld() {
     	return this.world;
+    }
+    
+    public JPanel getPanel() {
+    	return this.mainPanel;
     }
     
     public Simulator getSimulator() {
@@ -95,10 +104,10 @@ public class Simbad extends JFrame implements ActionListener {
     /** Create the main GUI. Only called once.*/
     private void createGUI() {
         desktop.setFocusable(true);
-        getContentPane().add(desktop);
-        menubar = new JMenuBar();
-        menubar.add(DemoManager.createMenu(this));
-        setJMenuBar(menubar);
+        //getContentPane().add(desktop);
+        mainPanel = new JPanel();
+        add(mainPanel);
+        add(desktop);
     }
     
     /** Starts (or Restarts after releaseRessources) the world and simulator.*/
@@ -130,13 +139,18 @@ public class Simbad extends JFrame implements ActionListener {
         worldWindow.show();
         worldWindow.setLocation(10, 10);
         //agentInspector = createAgentInspector(simulator, 20, 20);
-        if (!backgroundMode){
+        /*if (!backgroundMode){
         controlWindow = new ControlWindow(world, simulator);
         desktop.add(controlWindow);
         controlWindow.show();
-        controlWindow.setLocation(300, 450);
-        }
+        }*/
     }
+    
+    public void addFrame(JInternalFrame frame) {
+    	desktop.add(frame);
+    	frame.show();
+    }
+    
     /**
      * Dispose the windows- used before restart.
      */

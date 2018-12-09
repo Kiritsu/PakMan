@@ -7,12 +7,17 @@ import simbad.sim.EnvironmentDescription;
 
 public class PakEnvironment extends EnvironmentDescription {
 	private HashMap<String, ArrayList<Object>> environmentObjects;
+	private PakConfiguration config;
+	
+	public PakEnvironment(PakConfiguration config) {
+		this.config = config;
+	}
 	
 	/**
 	 * This initializes the environmentObjects and parse our different entities.
 	 */
 	public void initialize(String levelPath) {
-		environmentObjects = PakEnvironmentParser.parseEnvironment(this, levelPath);
+		environmentObjects = PakEnvironmentParser.parseEnvironment(this, levelPath, config);
 		setWorldSize(22);
 		createWorld();
 	}

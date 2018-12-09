@@ -25,6 +25,7 @@
 package simbad.gui;
 
 import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.BoxLayout;
@@ -37,19 +38,21 @@ import simbad.sim.World;
 public class ControlWindow extends JInternalFrame {
 
 	private static final long serialVersionUID = 1L;
-
+	private JPanel panel;
+	private JLabel score;
+	
 	public ControlWindow(World world,  Simulator simulator){
-    	    super("Control");
-    	    //createGui(world,simulator);
+    	    super("Panel principal");
+    	    createGui(world,simulator);
     	}
     	
     	private void createGui(World world,Simulator simulator){
-    	    
-    	    JPanel panel = new JPanel();
+    	    panel = new JPanel();
+    	    score = new JLabel("Score : 0/1000");
+    	    panel.add(score);
     	    setContentPane(panel);
-    	    panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
-    	    panel.add(new WorldControlGUI(world,simulator));
-       	panel.add(new SimulatorControlGUI((JFrame)getParent(),simulator));
+    	    setLocation(750, 10);
+    	    
     	    pack();
     	}
 }

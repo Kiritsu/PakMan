@@ -2,14 +2,10 @@ package game;
 
 public class PakMan {
 	public static void main(String[] args) {
-		//hardcoded level 1:
-        String path = "./levels/1.txt";
-        
-        if (args.length > 0) {
-            path = args[0];
-        }
-        
-		PakLevel level = new PakLevel(path);
+		PakConfiguration config = new PakConfiguration();
+		config.parseAll("./levels/config.ini");
+		
+		PakLevel level = new PakLevel(config, config.getLevel());
 		level.start();
 	}
 }

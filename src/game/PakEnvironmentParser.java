@@ -24,12 +24,11 @@ public class PakEnvironmentParser {
 	 * @param path Path of the file to parse.
 	 * @return HashMap containing every different object parsed.
 	 */
-	public static HashMap<String, ArrayList<Object>> parseEnvironment(EnvironmentDescription env, String path) {		
+	public static HashMap<String, ArrayList<Object>> parseEnvironment(EnvironmentDescription env, String path, PakConfiguration config) {		
 		HashMap<String, ArrayList<Object>> objs = new HashMap<>();
 		
 		try {
 			File file = new File(path); 
-			  
 			BufferedReader br = new BufferedReader(new FileReader(file)); 
 			  
 			String st; 
@@ -87,7 +86,7 @@ public class PakEnvironmentParser {
 						continue;
 					}
 					
-					objs.get("Player").add(new PakRobot(new Vector3d(Double.valueOf(vals[1]), Double.valueOf(vals[2]), Double.valueOf(vals[3])), "Pak Istan"));
+					objs.get("Player").add(new PakRobot(new Vector3d(Double.valueOf(vals[1]), Double.valueOf(vals[2]), Double.valueOf(vals[3])), "Pak Istan", config));
 				} else if (vals[0].equals("GHOST")) {
 					objs.putIfAbsent("Ghost", new ArrayList<Object>());
 					

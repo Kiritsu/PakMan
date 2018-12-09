@@ -2,13 +2,17 @@ package game;
 
 import javax.vecmath.Vector3d;
 
+import game.PakConfiguration.Keys;
 import simbad.sim.Agent;
 
 public class PakRobot extends Agent {
-	private char lastRotationKey = 'd';
+	private char lastRotationKey;
+	private Keys keys;
 	
-	public PakRobot(Vector3d position, String name) {
+	public PakRobot(Vector3d position, String name, PakConfiguration config) {
 		super(position, name);
+		this.keys = config.getKeys();
+		this.lastRotationKey = this.keys.getRight();
 	}
 	
 	/**
@@ -24,67 +28,48 @@ public class PakRobot extends Agent {
 	 * @param direction
 	 */
 	public void changeDirection(char key) {
-		switch (lastRotationKey) {
-			case 'z':
-				switch (key) {
-				case 'q':
-					rotateY(Math.PI / 2);
-					break;
-				case 's':
-					rotateY(Math.PI);
-					break;
-				case 'd':
-					rotateY(-(Math.PI / 2));
-					break;
-				default:
-					return;
-				}
-				break;
-			case 'q':
-				switch (key) {
-				case 'z':
-					rotateY(-(Math.PI / 2));
-					break;
-				case 's':
-					rotateY(Math.PI / 2);
-					break;
-				case 'd':
-					rotateY(Math.PI);
-					break;
-				default:
-					return;
-				}
-				break;
-			case 's':
-				switch (key) {
-				case 'z':
-					rotateY(Math.PI);
-					break;
-				case 'q':
-					rotateY(-(Math.PI / 2));
-					break;
-				case 'd':
-					rotateY(Math.PI / 2);
-					break;
-				default:
-					return;
-				}
-				break;
-			case 'd':
-				switch (key) {
-				case 'z':
-					rotateY(Math.PI / 2);
-					break;
-				case 'q':
-					rotateY(Math.PI);
-					break;
-				case 's':
-					rotateY(-(Math.PI / 2));
-					break;
-				default:
-					return;
-				}
-				break;
+		System.out.println(lastRotationKey);
+		
+		if (lastRotationKey == keys.getUp()) {
+			if (key == keys.getLeft()) {
+				rotateY(Math.PI / 2);
+			} else if (key == keys.getDown()) {
+				rotateY(Math.PI);
+			} else if (key == keys.getRight()) {
+				rotateY(-(Math.PI / 2));
+			} else {
+				return;
+			}
+		} else if (lastRotationKey == keys.getLeft()) {
+			if (key == keys.getUp()) {
+				rotateY(-(Math.PI / 2));
+			} else if (key == keys.getDown()) {
+				rotateY(Math.PI / 2);
+			} else if (key == keys.getRight()) {
+				rotateY(Math.PI);
+			} else {
+				return;
+			}
+		} else if (lastRotationKey == keys.getDown()) {
+			if (key == keys.getUp()) {
+				rotateY(Math.PI);
+			} else if (key == keys.getLeft()) {
+				rotateY(-(Math.PI / 2));
+			} else if (key == keys.getRight()) {
+				rotateY(Math.PI / 2);
+			} else {
+				return;
+			}
+		} else if (lastRotationKey == keys.getRight()) {
+			if (key == keys.getUp()) {
+				rotateY(Math.PI / 2);
+			} else if (key == keys.getLeft()) {
+				rotateY(Math.PI);
+			} else if (key == keys.getDown()) {
+				rotateY(-(Math.PI / 2));
+			} else {
+				return;
+			}
 		} 	
 		
 		lastRotationKey = key;
