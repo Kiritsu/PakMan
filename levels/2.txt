@@ -7,25 +7,16 @@ W -11 0 0 22 1 1
 W 0 0 11 22 1 0
 W 0 0 -11 22 1 0
 
-W 6 0 0 17 1 1
-W -6 0 0 17 1 1
-W 0 0 -4 12 1 0
-W 0 0 4 12 1 0
-
-//Spawn
-W 0 0 -2 10 1 0
-W 0 0 2 10 1 0
-W 2 0 0 2 1 1
-W -2 0 0 2 1 1
+W 1 0 0 2 0 0
 
 //Definit un joueur, puis ses coordonnees X Y et Z
 PAK 0 0 0
 
 //Definit un ennemi, ses coordonnees X Y Z puis sa vitesse.
-GHOST 3 0 -5 2.5
-GHOST 10 0 7 2.5
-GHOST -3 0 5 2.5
-GHOST -10 0 -7 2.5
+GHOST 3 0 -5 6
+GHOST 10 0 7 6
+GHOST -3 0 5 6
+GHOST -10 0 -7 6
 
 P 0 0 0 1
 P 2 0 1.5 0
