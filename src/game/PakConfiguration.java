@@ -21,9 +21,13 @@ public class PakConfiguration {
 	/**
 	 * Parses the configuration and update the different class attributes.
 	 * @param path
+	 * @throws Exception 
 	 */
-	public void parseAll(String path) {
-		parseTexts(path);
+	public void parseAll(String path) throws Exception {
+		boolean block = parseTexts(path);
+		if (!block) {
+			throw new Exception("Erreur during parse.");
+		}
 		applyKeys();
 		applyTexts();
 		applyLevel();
@@ -33,7 +37,7 @@ public class PakConfiguration {
 	 * Parses our ini configuration file.
 	 * @param path of the configuration file.
 	 */
-	public void parseTexts(String path) {
+	public boolean parseTexts(String path) {
 		try {
 			File file = new File(path); 
 			BufferedReader br = new BufferedReader(new FileReader(file)); 
@@ -41,6 +45,7 @@ public class PakConfiguration {
 			String st; 
 			String element = "";
 			while ((st = br.readLine()) != null) {
+				System.out.println(st);
 				if (st.startsWith("[") && st.endsWith("]")) {
 					element = st.replace("[", "").replace("]", "");
 					continue;
@@ -63,7 +68,10 @@ public class PakConfiguration {
 			br.close();
 		} catch (Exception e) {
 			e.printStackTrace();
+			return false;
 		}
+		
+		return true;
 	}
 	
 	/**

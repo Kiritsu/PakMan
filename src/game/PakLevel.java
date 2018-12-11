@@ -16,7 +16,6 @@ public class PakLevel {
 	
 	public PakLevel(PakConfiguration config, int level) {
 		this.config = config;
-		System.out.println(level);
 		this.level = level;
 		this.lifes = 3;
 	}
@@ -47,7 +46,7 @@ public class PakLevel {
 			try {
 				Thread.sleep(8000);
 			} catch (Exception e) {
-				e.printStackTrace();
+
 			}
 			
 			stop();
@@ -90,6 +89,7 @@ public class PakLevel {
 		window = new PakCustomWindow("Pak Window", frame, config);
 		window.updateRules();
 		window.updateScore(0);
+		window.updateLife(3);
 		frame.addFrame(window);
 		
 		thread = new PakThreading(frame);

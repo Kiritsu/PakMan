@@ -32,7 +32,6 @@ public class PakCustomWindow extends JInternalFrame {
 		gameover.setVisible(false);
 		gameover.setText("<html><p style=\"font-size: 50px\">GAME OVER</p></html>");
 		
-		panel.setLayout(new GridLayout(10, 1));
 		panel.add(rules);
 		panel.add(score);
 		panel.add(lifes);
@@ -47,7 +46,7 @@ public class PakCustomWindow extends JInternalFrame {
 	 * Updates the JLabel to print rules.
 	 */
 	public void updateRules() {
-		rules.setText("<html>" + config.getTextByKey("goal") + "<br>" + config.getTextByKey("robot") + "<br>" + config.getTextByKey("collision") + "</html>");
+		rules.setText("<html>" + config.getTextByKey("goal") + "</html>");
 	}
 	
 	/**
