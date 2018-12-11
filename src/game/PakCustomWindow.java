@@ -61,7 +61,7 @@ public class PakCustomWindow extends JInternalFrame {
 	 * Updates the JLabel with the given life.
 	 */
 	public void updateLife(int life) {
-		score.setText("Il vous reste " + life + " vie(s).");
+		lifes.setText("Il vous reste " + life + " vie(s).");
 		if (life == 0) {
 			gameover.setVisible(true);
 		}

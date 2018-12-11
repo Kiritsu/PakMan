@@ -9,9 +9,8 @@ public class NoLevelFrame extends JFrame {
 	 * This frame is used to tell the 'user' that the game is over.
 	 */
 	public NoLevelFrame() {
-		add(new JLabel("<html><p style=\"font-size: 75px;\">Vous avez terminé le jeu !<br/>Merci d'avoir joué.</p></html>"));
-		setSize(300, 300);
+		add(new JLabel("<html><p style=\"font-size: 50px;\">Vous avez terminé le jeu !<br/>Merci d'avoir joué.</p></html>"));
+		setSize(500, 500);
 		setVisible(true);
-		pack();
 	}
 }
