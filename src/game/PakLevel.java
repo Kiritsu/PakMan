@@ -12,6 +12,7 @@ public class PakLevel {
 	private int level;
 	private int lifes;
 	private int score;
+	private boolean fromScript;
 	
 	public PakLevel(PakConfiguration config, int level) {
 		this.config = config;
@@ -31,7 +32,7 @@ public class PakLevel {
 			stop();
 			
 			PakLevel lvl = new PakLevel(config, ++level);
-			lvl.start();
+			lvl.start(fromScript);
 		}
 	}
 	
@@ -73,9 +74,14 @@ public class PakLevel {
 	 * Starts the game: it initializes the environment with the given level, creates the frame, 
 	 * creates the other windows and start a special thread to keep focus on the frame (needed to catch keys pressed).
 	 */
-	public void start() {
+	public void start(boolean fromScript) {
+		this.fromScript = fromScript;
 		env = new PakEnvironment(this);
-		env.initialize("./levels/" + level + ".txt");
+		if (fromScript) {
+			env.initialize("../bin/levels/" + level + ".txt");
+		} else {
+			env.initialize("./levels/" + level + ".txt");
+		}
 		
 		frame = new Simbad(env, false);
 		frame.getWorld().changeViewPoint(World.VIEW_FROM_TOP, null);
