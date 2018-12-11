@@ -19,8 +19,9 @@ Utilisateur windows ? Utilisez les scripts `build.ps1` et `run.ps1` dans le doss
 *Assurez vous d'être dans le dossier src*
 
 ```
-> javac -sourcepath . -d ../bin game/*.java
-> cp -r ../levels/ ../bin
+> mkdir ../bin
+> javac -classpath "..\src;..\j3d\j3dcore.jar;..\j3d\j3dutils.jar;..\j3d\vecmath.jar" -d ../bin ../src/game/*.java
+> cp -r ../levels ../bin
 ```
 
 Les fichiers seront générés/copiés dans ../bin.
@@ -30,17 +31,33 @@ Les fichiers seront générés/copiés dans ../bin.
 *Assurez-vous d'être dans le dossier /bin.*
 
 ```
-> javaw "-Djava.library.path={0}" -classpath "{1};{2};{3};{4}" game.PakMan
+> javaw "-Djava.library.path=..\j3d\$run" -classpath "..\bin;..\j3d\j3dcore.jar;..\j3d\j3dutils.jar;..\j3d\vecmath.jar" game.PakMan "--from-script"
 ```
-
-- {0} : chemin vers les fichiers binaires de j3d (j3dcore-ogl.dll)
-- {1} : chemin vers les fichiers binaires du projet (.\pakMan\bin)
-- {2} : chemin **complet** vers j3dcore.jar
-- {3} : chemin **complet** vers j3dutils.jar
-- {4} : chemin **complet** vers vecmaths.jar
 
 Exemple :
 
 ```
-> javaw "-Djava.library.path=C:\Program Files (x86)\Java\Java3D\1.5.1\bin" -classpath "C:\Users\Allan\eclipse-workspace\pakMan\bin;C:\Program Files (x86)\Java\Java3D\1.5.1\lib\ext\j3dcore.jar;C:\Program Files (x86)\Java\Java3D\1.5.1\lib\ext\j3dutils.jar;C:\Program Files (x86)\Java\Java3D\1.5.1\lib\ext\vecmath.jar" game.PakMan
+> javaw "-Djava.library.path=C:\Program Files (x86)\Java\Java3D\1.5.1\bin" -classpath "C:\Users\Allan\eclipse-workspace\pakMan\bin;C:\Program Files (x86)\Java\Java3D\1.5.1\lib\ext\j3dcore.jar;C:\Program Files (x86)\Java\Java3D\1.5.1\lib\ext\j3dutils.jar;C:\Program Files (x86)\Java\Java3D\1.5.1\lib\ext\vecmath.jar" game.PakMan "--from-script"
 ```
+
+##Config.ini
+
+Vous pouvez suivre ce fichier de configuration. (par défaut)
+
+Changez les valeurs à droite du égal pour modifier les touches, ou le niveau par défaut. Le TEXTS, goal, est un texte compatible avec le HTML (et CSS).
+
+```ini
+[KEYS]
+start=t
+up=z
+down=s
+left=q
+right=d
+[GAME_CONFIG]
+level=1
+[TEXTS]
+goal=Le but du jeu est d'attraper tous les points sans se faire toucher par les robots ennemis.<br/><br/>Vous disposez de trois vies par niveau. Lorsque vous perdez, le jeu se ferme.<br/>Vous perdez une vie lorsque vous provoquez une collision avec un ennemi.<br/>À ce moment là, vous êtes retéléportés au point de départ. Le robot aussi.<br/>Les robots peuvent avoir des vitesses différentes et sont représentés en blanc.<br/><br/><br/>Le jeu a été réalisé par Allan, Gauthier et Rémi.<br/><br/>
+```
+
+## Description du jeu
+Le jeu a pour but de reprendre l'utilisation de PacMan. Pour démarrer un niveau, appuyez sur t, déplacez-vous avec z q s et d. Vous devez attraper tous les points pour passer au niveau suivant. Vous disposerez de trois vies par niveau. Si vous perdez, le jeu se termine.
