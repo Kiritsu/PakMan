@@ -1,3 +1,5 @@
+# ATTENTION ! IL EST PREFERABLE DE LIRE CE FICHIER DEPUIS GITHUB : https://github.com/Kiritsu/pakMan/blob/master/README.md
+
 # PakMan - simbad/j3d
 
 PakMan est un projet pour notre module `M301 - Conception et Programmation Objet Avancée` de l'université. Le but final de cette implémentation de l'API simbad/j3d est de faire un pseudo-pacman simplifié.
