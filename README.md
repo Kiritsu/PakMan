@@ -105,3 +105,10 @@ La quasi-totalité de notre code est contenue dans le package [game](https://git
 ## Nos objectifs complémentaires
 
 Si nous avions eu le temps, nous aurions voulu mettre en place une petite intelligence au niveau des ennemis, pouvoir avoir des bonus grace aux "gros" points, jouer en multi-joueur (celà requiert d'adapter la configuration et son parser). Et encore en plus, un tableau de scores, puisque certains niveaux sont difficiles. Et pour aller plus loin, la création automatique de niveaux.
+
+## Images
+
+![Affichage par défaut](https://image.noelshack.com/fichiers/2018/50/3/1544603970-1.png)
+![Pendant le jeu](https://image.noelshack.com/fichiers/2018/50/3/1544603970-2.png)
+![Game Over](https://image.noelshack.com/fichiers/2018/50/3/1544603970-3.png)
+![Fin du jeu](https://image.noelshack.com/fichiers/2018/50/3/1544603970-4.png)
