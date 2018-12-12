@@ -6,6 +6,8 @@ Toutes les différentes implémentations à faire sont dans la partie [Issues](h
 
 Vous avez un historique des modifications du programme ici : [Commits](https://github.com/Kiritsu/pakMan/commits/master)
 
+L'utilisation du jeu est recommandée sur une résolution `1920*1080` mais possible avec des résolutions plus basses `800*600`
+
 ## Installation
 
 ```
@@ -80,7 +82,7 @@ Nous gérons d'autres types de structures, mais l'API de simbad les gère assez 
 
 ## Description du jeu
 
-Le jeu a pour but de reprendre l'utilisation de PacMan. Pour démarrer un niveau, appuyez sur t, déplacez-vous avec z q s et d. Vous devez attraper tous les points pour passer au niveau suivant. Vous disposerez de trois vies par niveau. Si vous perdez, le jeu se termine.
+Le jeu a pour but de reprendre l'utilisation de PacMan. Pour démarrer un niveau, appuyez sur `t`, déplacez-vous avec `z` `q` `s` et `d`. Vous devez attraper tous les points pour passer au niveau suivant. Vous disposerez de trois vies par niveau. Si vous perdez, le jeu se termine.
 
 ## Analyse du code
 
