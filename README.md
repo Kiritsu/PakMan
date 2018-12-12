@@ -22,9 +22,9 @@ Utilisateur linux/mac ? Il faut malheureusement passer par eclipse pour lancer l
 *Assurez vous d'être dans le dossier src*
 
 ```
-> mkdir ../bin
-> javac -classpath "..\src;..\j3d\j3dcore.jar;..\j3d\j3dutils.jar;..\j3d\vecmath.jar" -d ../bin ../src/game/*.java
-> cp -r ../levels ../bin
+> mkdir bin
+> javac -classpath ".\src;.\j3d\j3dcore.jar;.\j3d\j3dutils.jar;.\j3d\vecmath.jar;.\" -d ./bin ./src/game/*.java
+> cp -r levels ./bin
 ```
 
 Les fichiers seront générés/copiés dans ../bin. On précise notre classpath contenant les librairies j3d.
